@@ -1,0 +1,27 @@
+import java.util.*;
+import java.io.*;
+public class Untitled {
+	public static void main(String[] args) throws Exception {
+		File intfile = new File("Exercise12-15.txt");
+	      if (intfile.createNewFile()) {} 
+	      else {
+	        System.out.println("File already exists.");
+	        System.exit(0); 
+	        } 
+		try (PrintWriter output = new PrintWriter(intfile);) 
+		{
+			for (int i = 0; i < 100; i++) {
+				output.print(((int)(Math.random() * 100)));
+				output.print(" "); }
+		}
+		ArrayList<Integer> intlist = new ArrayList<>();
+		
+		try(Scanner input = new Scanner(intfile); ) {
+			while (input.hasNext()) {
+				intlist.add(input.nextInt()); }
+		}
+		Collections.sort(intlist);
+		System.out.print(intlist.toString());
+		System.out.println();
+	}
+}
