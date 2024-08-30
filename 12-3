@@ -1,0 +1,21 @@
+import java.util.*;
+public class twelve {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter a number 1-100 and you will receive the number corrolated to the index: ");
+		int[] Index = getIndex();
+		
+		try {
+			System.out.println("The corresponding value is " + Index[input.nextInt()]);}
+		
+		catch (ArrayIndexOutOfBoundsException exeption) {
+			System.out.println("Number must be between 0 and 100.");}
+		
+	}
+	public static int[] getIndex() {
+		int[] rlIndex = new int[101];
+		for (int t = 0; t < rlIndex.length; t++) {
+			rlIndex[t] = (int)(Math.random() * 101);}
+		return rlIndex;
+	}
+}
